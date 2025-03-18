@@ -1,25 +1,31 @@
-/// Use DBML to define your database structure
-// Docs: https://dbml.dbdiagram.io/docs
 Table user {
+  id integer [primary key]
   user_id integer
   user_name string
   watch string
 }
 
 Table device {
+  id integer [primary key]
   user_id integer 
-  data_id integer
+
   max_battery integer
   kolor string
 }
 
 Table data {
-  data_id integer 
+  id integer [primary key]
+  device_id integer
   aktualne_naswietlenie integer
   czas_naswietlenia double
   kat_padania integer
   stan_baterii integer 
   status_ladowania bool
 }
-Ref: device.user_id < user.user_id 
-Ref: data.data_id > device.data_id
+Ref: device.user_id < user.id 
+
+
+
+
+
+Ref: "device"."id" < "data"."device_id"
