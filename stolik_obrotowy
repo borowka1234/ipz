@@ -16,6 +16,7 @@ Table device {
 Table data {
   id integer [primary key]
   device_id integer
+aktualny_czas
   aktualne_naswietlenie integer
   czas_naswietlenia double
   kat_padania integer
